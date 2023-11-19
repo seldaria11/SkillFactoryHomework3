@@ -9,18 +9,18 @@ def game_core_v3(number: int = 1) -> int:
         int: Число попыток
     """
     # Ваш код начинается здесь
-    start = 0
-    end = 101
-    count = 1
+    start = 0 # начало массива 
+    end = 101 # конец массива
+    count = 1 # счетчик попыток угадываний
     while True:
-        predict = (start + end) // 2
-        if number == predict:
+        predict = (start + end) // 2 # вычисляем середину массива (предполагаемое число)
+        if number == predict: # если угадали - прерываем
             break
-        count += 1
-        if number > predict:
-            start = predict
-        elif number < predict:
-            end = predict
+        count += 1 # если не угадали увеличиваем число попыток на один
+        if number > predict: # если искомое число больше предполагаемого
+            start = predict # то предполагаемое число становится началом отрезка угадывания
+        elif number < predict: # если искомое число меньше предполагаемого
+            end = predict # то предполагаемое число становится концом отрезка угадывания 
     # Ваш код заканчивается здесь
     return count
 
